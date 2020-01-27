@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>thuis</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav"></nav>
+<div class="bumper"></div>
+
+<div th:replace="fragments/uitnodigingen :: uitnodigingen"></div>
+
+<div class="content">
+    <h4>Hi <span th:text="${gebruiker.getNaam().getVoornaam()}"/>, welkom bij CardSwap.</h4>
+    <p>
+        Kies in het menu hierboven wat je wilt doen. Je kan bijvoorbeeld vrienden worden met andere gebruikers om te zien
+        welke plaatjes zij dubbel of nog nodig hebben.
+    </p>
+</div>
+
+<footer th:replace="fragments/footer :: footer"/>
+</body>
+</html>

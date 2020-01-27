@@ -1,0 +1,45 @@
+<div th:fragment="uitnodigingen">
+    <div class="content" id="nodigVriendUit" style="display: none">
+        <form action="#" th:action="@{vriend_uitnodigen}" method="post">
+            <div class="form-group">
+                <label for="invitedRepresentative">Gebruikersnaam vriend:</label>
+                <input type="text" class="form-control" id="invitedRepresentative" aria-describedby="emailHelp" name="user_name">
+                <small id="emailHelp" class="form-text text-muted">Voer hier de gebruikersnaam van jouw vriend in.</small>
+            </div>
+            <div class="form-group">
+                <label for="keyCode">Koppelcode (vijf cijfers):</label>
+                <input type="password" class="form-control" id="keyCode" name="keycode">
+            </div>
+            <button type="submit" class="btn btn-success">Stuur uitnodiging</button>
+        </form>
+    </div>
+    <div th:if="${motd != null}" id="welkom" class="content">
+        <h4><span th:text="${motd}"/></h4>
+    </div>
+    <div class="content" id="accpepteerUitnodiging" style="display: none">
+        <form action="accepteer_uitnodiging" method="post">
+            <div class="form-group">
+                <label th:for="invitationId">Uitnodiging van: </label>
+                <select class="form-control" th:id="invitationId" th:name="invitationId">
+                    <option th:each="uitnodiging : ${gebruiker.getUitnodigingenOntvangen()}" th:text="${uitnodiging.getNodiger().getGebruikersnaam()}"
+                            th:value="*{uitnodiging.getUitnodigingId()}">
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label th:for="tekstveld">Koppelcode (vijf cijfers):</label>
+                <input type="password" th:name="keycode" th:id="tekstveld" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Accepteer uitnodiging</button>
+
+<!--            <select class="form-control" th:id="invitationId" th:name="invitationId">-->
+<!--                <option th:each="uitnodiging : ${gebruiker.getUitnodigingenOntvangen()}" th:text="${uitnodiging.getNodiger().getGebruikersnaam()}"-->
+<!--                        th:value="*{uitnodiging.getUitnodigingId()}">-->
+<!--                </option>-->
+<!--            </select>-->
+<!--            <input type="password" th:name="keycode" th:id="tekstveld">-->
+<!--            <input type="submit" value="Accepteer uitnodiging.">-->
+        </form>
+    </div>
+    <div class="bumper"></div>
+</div>

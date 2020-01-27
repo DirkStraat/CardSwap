@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>dubbelen_toevoegen</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav"></nav>
+<div class="bumper"></div>
+<div th:replace="fragments/uitnodigingen :: uitnodigingen"></div>
+<div class="container container-fluid">
+<form id="dubbele_toevoegen_formulier" class="form" method="post" action="dubbelenToevoegen">
+    <input type='hidden' name="ids" id="ids">
+    <table th:replace="fragments/table :: table"/>
+    <p><p><button type="submit" class="btn btn-success" name="submit"><i class="fa fa-check"></i> <i class='fa fa-envelope'></i> Submit </button></p>
+</form>
+</div>
+<footer th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

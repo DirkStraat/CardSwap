@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>mijn_plaatjes</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav"></nav>
+<div class="bumper"></div>
+<div th:replace="fragments/uitnodigingen :: uitnodigingen"></div>
+
+<div class="container container-fluid">
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Nummer</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Team</th>
+        <th scope="col">Vrienden met dit plaatje dubbel</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="item : ${voetbalplaatjesenvrienden}">
+        <td scope="col"><span th:text="${item.key.getNummer()}"/> </td>
+        <td scope="col"><span th:text="${item.key.getNaam()}"/></td>
+        <td scope="col"><span th:text="${item.key.getTeam()}"></span></td>
+        <td scope="col"><span th:text="${item.value}"></span> </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<footer th:replace="fragments/footer :: footer"/>
+</body>
+</html>

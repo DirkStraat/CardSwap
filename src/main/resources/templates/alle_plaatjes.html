@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8" >
+    <title>alle_plaatjes</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav"></nav>
+<div class="bumper"></div>
+<div class="content">
+    <p>Klik op deze pagina alle plaatjes aan die jij al hebt.<br>
+        Door een vinkje te zetten in de bovenste regel, selecteer je alle plaatjes in één keer.
+    </p>
+</div>
+<div class="bumper"></div>
+<div class="container container-fluid">
+    <form id="alle_plaatjes" class="form" method="post" action="mijnPlaatjes">
+        <input type='hidden' name="ids" id="ids">
+        <table th:replace="fragments/table :: table"/>
+        <p><p><button type="submit" class="btn btn-success" name="submit"><i class="fa fa-check"></i> <i class='fa fa-envelope'></i> Submit </button></p>
+    </form>
+</div>
+<footer th:replace="fragments/footer :: footer"/>
+<script type="text/javascript" src="intro.js"></script>
+</body>
+</html>

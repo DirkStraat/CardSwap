@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>lid worden</title>
+</head>
+<body>
+<div class="bumper"></div>
+<div class="jumbotron">
+    <h3> <span th:text="${motd!=null} ? ${motd} : 'Vul hier je gegevens in om lid te worden van CardSwap'"></span></h3>
+    <form action="#" th:action="@{lid_worden}" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="emailLidWorden">Email</label>
+                <input type="email" class="form-control" id="emailLidWorden" placeholder="marco.vanbasten@ajax.nl" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inlognaamLidWorden">Gebruikersnaam</label>
+                <input type="text" class="form-control" id="inlognaamLidWorden" placeholder="SanMarco" name="gebruikersnaam">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="wachtwoordLidWorden">Wachtwoord</label>
+                <input type="password" class="form-control" id="wachtwoordLidWorden" placeholder="tenminste 8 karakters" name="wachtwoord">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="wachtwoord2LidWorden">Controle: nogmaals jouw wachtwoord</label>
+                <input type="password" class="form-control" id="wachtwoord2LidWorden" placeholder="tenminste 8 karakters" name="wachtwoord2">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="voornaamLidWorden">Voornaam</label>
+                <input type="text" class="form-control" id="voornaamLidWorden" placeholder="Marco" name="voornaam">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="tussenvoegselLidWorden">tussenvoegsel</label>
+                <input type="text" class="form-control" id="tussenvoegselLidWorden" placeholder="van" name="tussenvoegsel">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="achternaamLidWorden">Achternaam</label>
+                <input type="text" class="form-control" id="achternaamLidWorden" placeholder="Basten" name="achternaam">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Lid worden!</button>
+    </form>
+</div>
+
+<footer th:replace="fragments/footer :: footer"/>
+</body>
+</html>

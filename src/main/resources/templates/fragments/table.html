@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col"><input type="checkbox" id="selecctall" /></th>
+        <th scope="col">Nummer</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Team</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="voetbalPlaatje, iter: ${voetbalPlaatjes}">
+        <td scope="col"><input type='checkbox' th:value="${voetbalPlaatje.getIndex()}" class='checkbox' /></td>
+        <td scope="col"><span th:text="${voetbalPlaatje.getNummer()}"/></td>
+        <td scope="col"><span th:text="${voetbalPlaatje.getNaam()}"></span></td>
+        <td scope="col"><span th:text="${voetbalPlaatje.getTeam()}"></span> </td>
+    </tr>
+    </tbody>
+</table>

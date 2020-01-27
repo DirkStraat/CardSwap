@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">CardSwap</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mijn Plaatjes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/naarVerzamelingAanpassen">Mijn verzameling aanpassen</a>
+                    <a class="dropdown-item" href="/mijnPlaatjes">Overzicht van ontbrekende plaatjes</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mijn Dubbelen
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="naarDubbelenToevoegen">Dubbelen toevoegen</a>
+                    <a class="dropdown-item" href="naarDubbelenVerwijderen">Dubbelen verwijderen</a>
+                    <a class="dropdown-item" href="/mijnDubbelen">Overzicht van mijn dubbelen</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="display: none">Ruilen.</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showDiv('accpepteerUitnodiging')"
+                   th:style="${gebruiker.getUitnodigingenOntvangen().isEmpty()} ? 'display: none':'display: block'">Accepteer uitnodiging.</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showDiv('nodigVriendUit')">Nodig een vriend uit.</a>
+            </li>
+            <li class="nav-item" id="logout">
+                <a class="nav-link logout" href="/logout">uitloggen</a>
+            </li>
+        </ul>
+    </div>
+</nav>
