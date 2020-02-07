@@ -30,6 +30,11 @@ public class DubbelenToevoegenController {
 
         Gebruiker gebruiker = (Gebruiker) model.getAttribute("gebruiker");
         gebruiker = gebruikerService.getGebruikerByGebruikersnaam(gebruiker.getGebruikersnaam());
+
+        for (VoetbalPlaatje ontbrekendPlaatje: gebruiker.getOntbrekenden()) {
+            alleVoetbalPlaatjes.remove(ontbrekendPlaatje);
+        }
+
         List<VoetbalPlaatje> dubbelen = gebruiker.getDubbelen();
         for (VoetbalPlaatje dubbele : dubbelen) {
             alleVoetbalPlaatjes.remove(dubbele);

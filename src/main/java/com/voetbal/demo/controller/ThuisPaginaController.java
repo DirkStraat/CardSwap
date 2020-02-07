@@ -17,7 +17,7 @@ import java.util.List;
 
 @SessionAttributes({"gebruiker", "uitnodigingen"})
 @Controller
-public class thuisPaginaController {
+public class ThuisPaginaController {
     private final int LENGTE_KOPPELCODE = 5;
 
     @Autowired
@@ -73,7 +73,7 @@ public class thuisPaginaController {
         return "index";
     }
 
-    private void uitnodigingVersturen(String keycode, Model model, Gebruiker genodigde, Gebruiker nodiger) {
+    public void uitnodigingVersturen(String keycode, Model model, Gebruiker genodigde, Gebruiker nodiger) {
         Uitnodiging uitnodiging;
         uitnodiging = new Uitnodiging(nodiger, genodigde, keycode);
         genodigde = gebruikerService.getGebruikerByGebruikersnaam(genodigde.getGebruikersnaam());
@@ -86,7 +86,7 @@ public class thuisPaginaController {
         model.addAttribute("motd", "De uitnodiging is naar jouw vriend verstuurd. Deze kan de uitnodiging accepteren met de koppelcode.");
     }
 
-    private boolean checkKey(String keycode, Uitnodiging uitnodiging){
+    public boolean checkKey(String keycode, Uitnodiging uitnodiging){
         if (keycode.length() != LENGTE_KOPPELCODE){
             return false;
         } else if (!keycode.equals(uitnodiging.getKeycode()) ){
@@ -100,14 +100,11 @@ public class thuisPaginaController {
         return "thuis_pagina";
     }
 
-    private void voegVriendenToe(Gebruiker nodiger, Gebruiker genodigde, Uitnodiging uitnodiging){
+    public void voegVriendenToe(Gebruiker nodiger, Gebruiker genodigde, Uitnodiging uitnodiging){
         genodigde = gebruikerService.getGebruikerByGebruikersnaam(genodigde.getGebruikersnaam());
         genodigde.getVrienden().add(nodiger);
         genodigde.getUitnodigingenOntvangen().remove(uitnodiging);
         nodiger.getUitnodigingenVerstuurd().remove(uitnodiging);
-        for (Uitnodiging uitnodiging1: genodigde.getUitnodigingenOntvangen()) {
-            System.out.println(uitnodiging1.getUitnodigingId());
-        }
         nodiger.getVrienden().add(genodigde);
 
         gebruikerService.saveGebruiker(nodiger);
@@ -120,4 +117,11 @@ public class thuisPaginaController {
 
     }
 
+    public void setGebruikerService(GebruikerService gebruikerService) {
+        this.gebruikerService = gebruikerService;
+    }
+
+    public void setUitnodigingService(UitnodigingService uitnodigingService) {
+        this.uitnodigingService = uitnodigingService;
+    }
 }

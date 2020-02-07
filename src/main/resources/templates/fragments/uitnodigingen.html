@@ -3,12 +3,12 @@
         <form action="#" th:action="@{vriend_uitnodigen}" method="post">
             <div class="form-group">
                 <label for="invitedRepresentative">Gebruikersnaam vriend:</label>
-                <input type="text" class="form-control" id="invitedRepresentative" aria-describedby="emailHelp" name="user_name">
-                <small id="emailHelp" class="form-text text-muted">Voer hier de gebruikersnaam van jouw vriend in.</small>
+                <input type="text" class="form-control" id="invitedRepresentative" name="user_name">
             </div>
             <div class="form-group">
                 <label for="keyCode">Koppelcode (vijf cijfers):</label>
-                <input type="password" class="form-control" id="keyCode" name="keycode">
+                <input type="password" class="form-control" id="keyCode" name="keycode" aria-describedby="emailHelp" >
+                <small id="emailHelp" class="form-text text-muted">Kies vijf cijfers. Niet meer of minder. Geen andere tekens.</small>
             </div>
             <button type="submit" class="btn btn-success">Stuur uitnodiging</button>
         </form>

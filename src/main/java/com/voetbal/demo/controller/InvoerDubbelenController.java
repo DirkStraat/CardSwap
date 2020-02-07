@@ -25,7 +25,14 @@ public class InvoerDubbelenController {
     GebruikerService gebruikerService;
 
     public void invoerDubbelenHandler(Model model){
+        Gebruiker gebruiker = (Gebruiker)model.getAttribute("gebruiker");
+        gebruiker = gebruikerService.getGebruikerByGebruikersnaam(gebruiker.getGebruikersnaam());
         List<VoetbalPlaatje> voetbalPlaatjes = voetbalPlaatjeService.getVoetbalPlaatjes();
+
+        for (VoetbalPlaatje ontbrekendPlaatje: gebruiker.getOntbrekenden()) {
+            voetbalPlaatjes.remove(ontbrekendPlaatje);
+        }
+
         model.addAttribute("voetbalPlaatjes", voetbalPlaatjes);
     }
 

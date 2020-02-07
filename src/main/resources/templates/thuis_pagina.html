@@ -10,7 +10,7 @@
 
 <div th:replace="fragments/uitnodigingen :: uitnodigingen"></div>
 
-<div class="content">
+<div class="content" th:style="${motd!=null ? 'display:none' : 'display:block'}">
     <h4>Hi <span th:text="${gebruiker.getNaam().getVoornaam()}"/>, welkom bij CardSwap.</h4>
     <p>
         Kies in het menu hierboven wat je wilt doen. Je kan bijvoorbeeld vrienden worden met andere gebruikers om te zien

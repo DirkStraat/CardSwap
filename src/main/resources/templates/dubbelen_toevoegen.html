@@ -8,6 +8,13 @@
 <nav th:replace="fragments/nav :: nav"></nav>
 <div class="bumper"></div>
 <div th:replace="fragments/uitnodigingen :: uitnodigingen"></div>
+<div class="content">
+    <p>
+        Vink hieronder de plaatjes aan die je nieuw dubbel hebt.
+        En klik onderaan de pagina op submit om de wijzigingen door te voeren.
+    </p>
+</div>
+<div class="bumper"></div>
 <div class="container container-fluid">
 <form id="dubbele_toevoegen_formulier" class="form" method="post" action="dubbelenToevoegen">
     <input type='hidden' name="ids" id="ids">
